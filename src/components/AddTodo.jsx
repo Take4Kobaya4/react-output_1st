@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { TextField, Button } from '@mui/material';
 
 const AddTodo = ({addTodo}) => {
 
@@ -15,13 +16,19 @@ const AddTodo = ({addTodo}) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input
-            type="text"
+            <TextField
+            variant="outlined"
+            fullWidth
             placeholder="新しいTodoを追加"
             value={newTodo}
+            margin="normal"
             onChange={(e) => setNewTodo(e.target.value)}
             />
-            <button type="submit">追加</button>
+            <Button 
+            type="submit"
+            variant="contained"
+            style={{ marginTop: '10px' }}
+            >追加</Button>
         </form>
     );
 }

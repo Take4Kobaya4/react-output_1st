@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import SearchBar from './SearchBar';
 import AddTodo from './AddTodo';
 import TodoList from './TodoList';
+import { Typography } from '@mui/material';
 
 function TodoApp() {
   const [todos, setTodos] = useState([]);
@@ -27,17 +28,17 @@ function TodoApp() {
               .replace(/\s/g, '')
               .replace(/　/g, '');
   }
-
+  // 部分一致検索
   const filteredTodos = todos.filter((todo) => 
     normalizeString(todo.text).includes(normalizeString(searchQuery))
   );
 
   return (
-    <div className='App'>
-      <h1>Todo リスト</h1>
+    <div className='App' style={{ padding: '10%' }}>
+      <Typography variant="h4">Todo List</Typography>
       <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
       <AddTodo addTodo={addTodo}/>
-      <TodoList todos={filteredTodos} deleteTodo={deleteTodo}/>
+      <TodoList todos={filteredTodos} deleteTodo={deleteTodo} />
     </div>
   );
 }

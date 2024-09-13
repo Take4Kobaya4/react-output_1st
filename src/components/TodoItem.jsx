@@ -1,11 +1,12 @@
 import React from 'react';
+import { Button, ListItem } from "@mui/material";
 
 const TodoItem = ({todo, deleteTodo}) => {
     return (
-        <li>
+        <ListItem>
             {todo.text}
-            <button onClick={()=> deleteTodo(todo.id)}>Delete</button>
-        </li>
+            <Button onClick={()=> deleteTodo(todo.id)} variant="contained" color="error">Delete</Button>
+        </ListItem>
     );
 }
 
