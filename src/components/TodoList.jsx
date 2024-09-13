@@ -1,13 +1,14 @@
 import React from 'react';
 import TodoItem from './TodoItem';
+import { List } from '@mui/material';
 
 const TodoList = ({todos, deleteTodo}) => {
     return (
-        <ul>
+        <List>
             {todos.map((todo) => (
                 <TodoItem key={todo.id} todo={todo} deleteTodo={deleteTodo}/>
             ))}
-        </ul>
+        </List>
     );
 }
 
